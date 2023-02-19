@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- JDBC Database connection settings -->
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/cloudraga_db</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">mysql</property>
+
+		<!-- Select our SQL dialect i.e Through this Hibernate detect the database 
+			we are using in the project and then hibernate generates SQL query according 
+			to the database -->
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<!-- Echo/print the SQL to stdout -->
+		<property name="show_sql">true</property>
+
+		<!--create=> Drop and re-create the database schema on startup -->
+		<!--update=> update the database schema on startup -->
+		<property name="hbm2ddl.auto">update</property>
+
+		<!-- mapping/registering of entity classes -->
+		<mapping class="com.pack.entity.Vehicle" />
+
+	</session-factory>
+</hibernate-configuration>
